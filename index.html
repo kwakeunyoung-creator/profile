@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배우 곽은영</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+        }
+        
+        .profile-contact {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .nav-container {
+            background-color: #f8f8f8;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .nav-menu li a {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .nav-menu li a:hover, .nav-menu li a.active {
+            color: #333;
+            background-color: #e9e9e9;
+        }
+        
+        .content-section {
+            padding: 50px 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #333;
+            margin: 15px auto 0;
+        }
+        
+        .basic-info {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        
+        .basic-info p {
+            margin-bottom: 10px;
+        }
+        
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .profile-image {
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .profile-image:hover img {
+            transform: scale(1.03);
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .work-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .work-item {
+            margin-bottom: 15px;
+        }
+        
+        .work-title {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .work-role {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            aspect-ratio: 3/4;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #f8f8f8;
+            padding: 30px 0;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #555;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #000;
+        }
+        
+        @media (max-width: 768px) {
+            .profile-grid, .work-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .content-section {
+                padding: 30px 15px;
+            }
+            
+            .profile-name {
+                font-size: 2rem;
+            }
+            
+            .profile-contact {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="profile-name">곽 은 영</h1>
+                <div class="profile-contact">010-2205-5811</div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="nav-container">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#profile" class="active">프로필</a></li>
+                <li><a href="#works">작품</a></li>
+                <li><a href="#photos">포토갤러리</a></li>
+                <li><a href="#current">현재모습</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="profile" class="content-section">
+        <div class="container">
+            <h2 class="section-title">프로필</h2>
+            <div class="basic-info">
+                <p>1977년생 / 163cm / 50kg / 상의 : 55 / 하의 : 27inch / 신발 : 235mm</p>
+                <p>서울예술대학 방송연예과 졸업 (전공:TV매체연기) / 연세대학교 언론홍보대학원 중퇴 (전공:광고홍보)</p>
+                <p>2005년 GS홈쇼핑 쇼호스트 선발대회 대상 수상</p>
+                <p>특기 : 아나운싱, 나레이션</p>
+                <p>전자메일 : <a href="mailto:key770815@naver.com">key770815@naver.com</a> / 인스타그램 : <a href="https://www.instagram.com/key_2022_" target="_blank">@key_2022_</a></p>
+            </div>
+            
+            <div class="profile-grid">
+                <div class="profile-image">
+                    <img src="/api/placeholder/400/500" alt="곽은영 프로필 사진">
+                </div>
+                <div class="profile-image">
+                    <img src="/api/placeholder/400/500" alt="곽은영 프로필 사진">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="works" class="content-section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">작품</h2>
+            
+            <div class="work-category">
+                <h3 class="category-title">드라마</h3>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-title">《 오늘도 지송합니다 》 (KBS Joy)</div>
+                        <div class="work-role">원장 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 신데렐라 게임 》 (KBS2)</div>
+                        <div class="work-role">수녀 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 마이데몬 》 (SBS)</div>
+                        <div class="work-role">가정부 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 나쁜 엄마 》 (JTBC)</div>
+                        <div class="work-role">아나운서 ∙ 기자 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 재벌집 막내아들 》 (JTBC)</div>
+                        <div class="work-role">아나운서 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 힙하게 》 (JTBC)</div>
+                        <div class="work-role">홍미연(박혁권 아내) 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 두번째 남편 》 (MBC)</div>
+                        <div class="work-role">소아과 의사 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 원더풀 월드 》 (MBC)</div>
+                        <div class="work-role">선거 유세원 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 이로운 사기 》 (TVN)</div>
+                        <div class="work-role">다단계 직원 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 완벽한 가족 》 (KBS2)</div>
+                        <div class="work-role">경호 母 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 최악의 악 》 (디즈니+)</div>
+                        <div class="work-role">신자 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 금혼령, 조선 혼인 금지령 》 (MBC)</div>
+                        <div class="work-role">화윤母</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 돈워리살구 》 (투니버스)</div>
+                        <div class="work-role">살구 엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 잏츄에이션 》 (인천도시공사 웹드)</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 K-saying 스케치 》 (웹드)</div>
+                        <div class="work-role">교수 역</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-category">
+                <h3 class="category-title">지면</h3>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-title">《 프뢰벨 》</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 운선제한복 》</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 슬리피솔 》</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 히어닷컴 》</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-category">
+                <h3 class="category-title">예능</h3>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-title">《 여고추리반3 》 (TVING)</div>
+                        <div class="work-role">교장 역</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="work-category">
+                <h3 class="category-title">광고</h3>
+                <div class="work-grid">
+                    <div class="work-item">
+                        <div class="work-title">《 비에날씬 / 비에날퀸 》</div>
+                        <div class="work-role">엄마 / 아내역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 하나은행 리빙트러스트 》</div>
+                        <div class="work-role">해외거주자 편</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 라이나생명 효녀편 》</div>
+                        <div class="work-role">효녀 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 삼성화재 》</div>
+                        <div class="work-role">주부 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 AIA 건강플러스 암보험 》</div>
+                        <div class="work-role">심사위원 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 한화손해보험 》</div>
+                        <div class="work-role">연구원 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 콴첼 》</div>
+                        <div class="work-role">주부 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 대웅제약 》</div>
+                        <div class="work-role">윤종신 아내 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 해피홈 》</div>
+                        <div class="work-role">워킹맘 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 키엔용 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 대교 마카다미아 올인원 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 T클래스 천재교과서 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 윤선생 영어교실 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 GS칼텍스 》</div>
+                        <div class="work-role">주부 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 플란치과 》</div>
+                        <div class="work-role">환자 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 노랑통닭 》</div>
+                        <div class="work-role">보좌관 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 정관장 이너진파트너 》</div>
+                        <div class="work-role">워킹맘 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 건강보험심사평가원 》</div>
+                        <div class="work-role">의사 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 소상공인시장진흥공단 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">《 안전보건공단 안전송 》</div>
+                        <div class="work-role">엄마 역</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="photos" class="content-section">
+        <div class="container">
+            <h2 class="section-title">포토갤러리</h2>
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 프로필 사진 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 프로필 사진 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 프로필 사진 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 작품 스틸컷 6">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="current" class="content-section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">무보정 현재모습</h2>
+            <div class="photo-gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 무보정 현재모습 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 무보정 현재모습 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 무보정 현재모습 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/300/400" alt="곽은영 무보정 현재모습 4">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2025 곽은영 | 모든 권리 보유</p>
+                <p>연락처: 010-2205-5811 | 이메일: <a href="mailto:key770815@naver.com">key770815@naver.com</a></p>
+                <div class="footer-links">
+                    <a href="https://www.instagram.com/key_2022_" target="_blank">인스타그램</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 스크롤 시 섹션 활성화 및 네비게이션 하이라이트
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const navItems = document.querySelectorAll('.nav-menu a');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').substring(1) === currentSection) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // 부드러운 스크롤 적용
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
