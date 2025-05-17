@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배우 곽은영</title>
+    <!-- Font Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
         
@@ -204,30 +207,16 @@
             transform: scale(1.05);
         }
         
-        .contact-section {
-            max-width: 600px;
-            margin: 50px auto 0;
-            text-align: center;
-            padding: 30px;
-            background-color: #f8f8f8;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .contact-title {
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info {
+        .footer-desc {
             font-size: 1.1rem;
-            margin-bottom: 10px;
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
         }
         
         footer {
             background-color: #fff8f0;
-            padding: 30px 0;
+            padding: 50px 0;
             text-align: center;
             color: #666;
             border-top: 1px solid #eee6dd;
@@ -236,22 +225,47 @@
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
         }
         
         .footer-links {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 15px;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 25px 0;
         }
         
-        .footer-links a {
-            color: #555;
-            transition: color 0.3s;
+        .footer-link-item {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            font-size: 1.1rem;
         }
         
-        .footer-links a:hover {
-            color: #000;
+        .footer-link-item:hover {
+            color: #333;
+            transform: translateY(-2px);
+        }
+        
+        .footer-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        
+        .footer-copyright {
+            font-size: 0.9rem;
+            color: #999;
+            margin-top: 30px;
         }
         
         @media (max-width: 768px) {
@@ -339,14 +353,14 @@
         <div class="container">
             <h2 class="section-title">프로필</h2>
             
-            <div class="profile-photos">
-                <div class="profile-photo-item">
+            <div class="photo-gallery profile-gallery">
+                <div class="gallery-item">
                     <img src="images/profile-1.jpg" alt="곽은영 프로필 사진 1">
                 </div>
-                <div class="profile-photo-item">
+                <div class="gallery-item">
                     <img src="images/profile-2.jpg" alt="곽은영 프로필 사진 2">
                 </div>
-                <div class="profile-photo-item">
+                <div class="gallery-item">
                     <img src="images/profile-3.jpg" alt="곽은영 프로필 사진 3">
                 </div>
             </div>
@@ -585,27 +599,41 @@
                     <img src="images/current-4.jpg" alt="곽은영 무보정 현재모습 4">
                 </div>
             </div>
-            
-            <div class="contact-section">
-                <h3 class="contact-title">문의하기</h3>
-                <p class="contact-info">캐스팅 및 작품 문의는 아래 연락처로 부탁드립니다.</p>
-                <p class="contact-info">전화: 010-2205-5811</p>
-                <p class="contact-info">이메일: <a href="mailto:key770815@naver.com">key770815@naver.com</a></p>
-            </div>
         </div>
     </section>
     
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>© 2025 곽은영 | All Rights Reserved</p>
+                <div class="footer-logo">KWAK EUN YOUNG</div>
+                <p class="footer-desc">캐스팅 및 작품 문의는 아래 연락처로 연락 부탁드립니다.</p>
+                
                 <div class="footer-links">
-                    <a href="mailto:key770815@naver.com">이메일</a>
-                    <a href="https://www.instagram.com/key_2022_" target="_blank">인스타그램</a>
+                    <a href="mailto:key770815@naver.com" class="footer-link-item">
+                        <span class="footer-icon">✉️</span> 이메일: key770815@naver.com
+                    </a>
+                    <a href="tel:01022055811" class="footer-link-item">
+                        <span class="footer-icon">📱</span> 전화번호: 010-2205-5811
+                    </a>
+                    <a href="https://www.instagram.com/key_2022_" target="_blank" class="footer-link-item">
+                        <span class="footer-icon">📸</span> 인스타그램: @key_2022_
+                    </a>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>© 2025 곽은영 | All Rights Reserved</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- 라이트박스(이미지 뷰어) 추가 -->
+    <div class="lightbox" id="lightbox" style="display: none;">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightbox-img" src="" alt="확대된 이미지">
+        </div>
+    </div>
 
     <script>
         // 스크롤 시 섹션 활성화
@@ -641,6 +669,35 @@
                 });
             });
         });
+        
+        // 라이트박스(이미지 뷰어) 기능
+        document.addEventListener('DOMContentLoaded', function() {
+            // 모든 이미지에 클릭 이벤트 추가
+            const allImages = document.querySelectorAll('.main-profile-img, .gallery-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            
+            allImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    lightboxImg.src = this.src;
+                    lightbox.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // 스크롤 방지
+                });
+            });
+            
+            // 라이트박스 영역 클릭시 닫기
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        });
+        
+        // 라이트박스 닫기 함수
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = ''; // 스크롤 다시 허용
+        }
     </script>
 </body>
 </html>
